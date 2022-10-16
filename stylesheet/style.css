@@ -3,10 +3,6 @@ body {
     background-color: #F6F6F6;
 }
 
-.primary1 {
-    color: #5D5FEF;
-}
-
 li.list-group-item {
     color: #858585;
     background: none;
@@ -14,6 +10,3 @@ li.list-group-item {
     cursor: pointer;
 }
 
-li.list-group-item:hover {
-    color: #5D5FEF;
-}

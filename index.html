@@ -22,7 +22,7 @@
     <header class="my-3">
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container">
-                <a class="navbar-brand fw-bold" href="#">CBC <span class="primary1">NEWS</span></a>
+                <a class="navbar-brand fw-bold" href="#">CBC <span class="text-primary">NEWS</span></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -47,12 +47,27 @@
         <hr class="line">
     </header>
 
-    <main>
+    <main class="container">
         <!-- categories section -->
-        <section class="container">
+        <section class="my-5">
             <ul id="lists-container"
                 class="flex-wrap list-group list-group-horizontal justify-content-between text-warning">
             </ul>
+        </section>
+
+        <!--category Entertainment   -->
+        <section class="my-5">
+            <div class="p-3 bg-light border border-1 rounded">4 items found for category Entertainment</div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <div>
+                    <p>Sort By View:</p>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary">Today’s Pick</button>
+                    <button type="button" class="btn btn-outline-primary ms-2">Trending</button>
+                </div>
+            </div>
         </section>
     </main>
 
