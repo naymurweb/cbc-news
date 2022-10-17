@@ -348,11 +348,16 @@ const detailsNews = (id) => {
 };
 
 const detailsNewsDisplay = (data) => {
-  console.log(data);
   const modalTitle = document.getElementById("exampleModalLabel");
-  modalTitle.innerText = `${data.title} `;
+  modalTitle.innerText = `${data?.author?.name}`;
+  const published = document.getElementById("published");
+  published.innerText = `published: ${data?.author?.published_date}`;
+  const trending = document.getElementById("trending");
+  trending.innerText = `trending: ${data?.others_info?.is_trending}`;
+  const totalView = document.getElementById("totalView");
+  totalView.innerText = `total view: ${data?.total_view}`;
   const modalPra = document.getElementById("modal-pra");
-  modalPra.innerHTML = `${data.details}`;
+  modalPra.innerHTML = `${data?.details}`;
 };
 
 categories();
