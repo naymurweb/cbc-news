@@ -10,3 +10,10 @@ li.list-group-item {
     cursor: pointer;
 }
 
+svg.w-6.h-6 {
+    width: 24px;
+}
+
+#long-text{
+    text-overflow: ellipsis; 
+}
