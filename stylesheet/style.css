@@ -17,3 +17,7 @@ svg.w-6.h-6 {
 #long-text{
     text-overflow: ellipsis; 
 }
+
+.list-group-item:hover{
+    color:#3944F7;
+}

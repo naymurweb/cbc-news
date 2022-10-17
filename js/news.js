@@ -17,6 +17,11 @@ const categoriesDisplay = (data) => {
 };
 
 const news = (id) => {
+  // spinner start
+  const spinner = document.getElementById("spinner");
+  spinner.classList.remove("d-none");
+
+  // console.log('click');
   const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
   fetch(url)
     .then((res) => res.json())
@@ -25,20 +30,20 @@ const news = (id) => {
 
 const newsDisplay = (data) => {
   // show-items
-  const showItems=document.getElementById('show-items')
-  showItems.innerText=`${data.length}`
+  const showItems = document.getElementById("show-items");
+  showItems.innerText = `${data.length}`;
   // console.log(data);
   const newsDetails = document.getElementById("news-details");
   newsDetails.innerHTML = "";
-  data.forEach((item) => {
-    console.log(item);
+  data?.forEach((item) => {
+    // console.log(item);
     const newsShow = document.createElement("div");
     newsShow.classList.add("card", "my-4");
 
     newsShow.innerHTML = `
-                <div class="row g-0 shadow-lg align-items-center">
+                <div class="row g-0 shadow-lg">
 
-                    <div class="col-md-4 p-3 ">
+                    <div class="col-md-4 p-3 d-flex justify-content-center align-items-center">
                         <img src=${
                           item.thumbnail_url
                         } class="img-fluid rounded" alt="...">
@@ -50,14 +55,14 @@ const newsDisplay = (data) => {
                                     <h5 class="card-title fw-bold">${
                                       item.title
                                     }</h5>
-                                    <p class="card-text">${item.details .slice(
+                                    <p class="card-text">${item?.details?.slice(
                                       0,
                                       200
-                                    )}</p>
-                                    <p class="card-text">${item.details.slice(
-                                      200,
-                                      320
-                                    )}...</p>
+                                    )}||'no data available'</p>
+                                    <p class="card-text">${
+                                      item?.details?.slice(200, 320) ||
+                                      "no data available"
+                                    }...</p>
                                 </div>
                             </div>
 
@@ -77,14 +82,19 @@ const newsDisplay = (data) => {
                                                 </a>
 
                                                 <div>
-                                                    <small> <span class="fw-bold ms-2">${item.author.name.slice(
-                                                      0,
-                                                      40
-                                                    )}</span><br>
-                                                        ${item.author.published_date.slice(
-                                                          0,
-                                                          10
-                                                        )}</small>
+                                                    <small> <span class="fw-bold ms-2">${
+                                                      item?.author?.name?.slice(
+                                                        0,
+                                                        40
+                                                      ) || "no data available"
+                                                    }</span><br>
+                                                        ${
+                                                          item?.author?.published_date?.slice(
+                                                            0,
+                                                            10
+                                                          ) ||
+                                                          "no data available"
+                                                        }</small>
                                                 </div>
                                             </div>
                                         </div>
@@ -164,6 +174,10 @@ const newsDisplay = (data) => {
 
     newsDetails.appendChild(newsShow);
   });
+
+  // spinner end
+  const spinner = document.getElementById("spinner");
+  spinner.classList.add("d-none");
 };
 
 const detailsNews = (id) => {
