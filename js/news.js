@@ -1,13 +1,13 @@
 const categories = () => {
   fetch("https://openapi.programming-hero.com/api/news/categories")
     .then((res) => res.json())
-    .then((data) => categoriesDisplay(data.data.news_category));
+    .then((data) => categoriesDisplay(data.data.news_category))
+    .catch((error) => alert("no data found!"));
 };
 
 const categoriesDisplay = (data) => {
   const listContainer = document.getElementById("lists-container");
   data.forEach((item) => {
-    // console.log(item);
     const listItem = document.createElement("li");
     listItem.classList.add("list-group-item");
     listItem.setAttribute("onclick", `news('${item.category_id}')`);
@@ -25,18 +25,17 @@ const news = (id) => {
   const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => newsDisplay(data.data));
+    .then((data) => newsDisplay(data.data))
+    .catch((error) => alert("no data found!"));
 };
 
 const newsDisplay = (data) => {
   // show-items
   const showItems = document.getElementById("show-items");
   showItems.innerText = `${data.length}`;
-  // console.log(data);
   const newsDetails = document.getElementById("news-details");
   newsDetails.innerHTML = "";
   data?.forEach((item) => {
-    // console.log(item);
     const newsShow = document.createElement("div");
     newsShow.classList.add("card", "my-4");
 
@@ -184,7 +183,8 @@ const detailsNews = (id) => {
   const url = `https://openapi.programming-hero.com/api/news/${id}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => detailsNewsDisplay(data.data[0]));
+    .then((data) => detailsNewsDisplay(data.data[0]))
+    .catch((error) => alert("no data found!"));
 };
 
 const detailsNewsDisplay = (data) => {
