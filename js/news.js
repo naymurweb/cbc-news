@@ -24,10 +24,14 @@ const news = (id) => {
 };
 
 const newsDisplay = (data) => {
+  // show-items
+  const showItems=document.getElementById('show-items')
+  showItems.innerText=`${data.length}`
+  // console.log(data);
   const newsDetails = document.getElementById("news-details");
   newsDetails.innerHTML = "";
   data.forEach((item) => {
-    // console.log(item);
+    console.log(item);
     const newsShow = document.createElement("div");
     newsShow.classList.add("card", "my-4");
 
@@ -46,7 +50,7 @@ const newsDisplay = (data) => {
                                     <h5 class="card-title fw-bold">${
                                       item.title
                                     }</h5>
-                                    <p class="card-text">${item.details.slice(
+                                    <p class="card-text">${item.details .slice(
                                       0,
                                       200
                                     )}</p>
